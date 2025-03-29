@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-export default function Home() {
-  return <div>Hello</div>;
-}
-=======
 import AdminForm from "@/components/AdminForm/AdminForm";
 import styles from "./page.module.css";
 import Posts from "@/components/Posts/Post";
@@ -18,4 +13,3 @@ const Home = () => {
 };
 
 export default Home;
->>>>>>> origin/main

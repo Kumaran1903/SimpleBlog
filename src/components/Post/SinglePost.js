@@ -35,7 +35,6 @@
 
 // export default SinglePost;
 
-
 "use client";
 import styles from "./SinglePost.module.css";
 import { useState } from "react";
@@ -44,12 +43,11 @@ const SinglePost = ({ post }) => {
   const [edit, setEdit] = useState(false);
   const [title, setTitle] = useState(post.title);
 
-  // Function to handle post update
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch("http://localhost:3000/api/posts", {
-        method: "PUT", // Assuming PUT method for updates
+        method: "PUT", 
         headers: {
           "Content-Type": "application/json",
         },
@@ -57,14 +55,13 @@ const SinglePost = ({ post }) => {
       });
 
       if (!response.ok) throw new Error("Failed to update post");
-      
-      setEdit(false); // Close edit mode after successful update
+
+      setEdit(false);
     } catch (error) {
       console.error("Error updating post:", error);
     }
   };
 
-  // Function to handle post deletion
   const handleDelete = async () => {
     try {
       const response = await fetch("http://localhost:3000/api/posts", {
@@ -76,8 +73,6 @@ const SinglePost = ({ post }) => {
       });
 
       if (!response.ok) throw new Error("Failed to delete post");
-
-      alert("Post deleted successfully"); // Notify user (or refresh UI)
     } catch (error) {
       console.error("Error deleting post:", error);
     }
@@ -85,10 +80,8 @@ const SinglePost = ({ post }) => {
 
   return (
     <div className={styles.container}>
-      {/* Display title when not editing */}
       {!edit && <h4>{title}</h4>}
 
-      {/* Edit post form */}
       {edit && (
         <form onSubmit={handleEdit} className={styles.updateContainer}>
           <input
@@ -97,12 +90,13 @@ const SinglePost = ({ post }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <button type="button" onClick={() => setEdit(false)}>Cancel</button>
+          <button type="button" onClick={() => setEdit(false)}>
+            Cancel
+          </button>
           <button type="submit">Update</button>
         </form>
       )}
 
-      {/* Edit and Delete buttons */}
       {!edit && (
         <div className={styles.editcontainer}>
           <button onClick={() => setEdit(true)}>Edit</button>
