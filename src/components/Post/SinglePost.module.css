@@ -1,0 +1,19 @@
+.container {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin-top: 10px;
+  /* border:2px solid red; */
+}
+.editcontainer {
+  display: flex;
+  gap: 20px;
+}
+.updateContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* gap: 20px; */
+}
