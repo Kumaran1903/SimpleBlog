@@ -2,9 +2,16 @@
 import { revalidatePath } from "next/cache";
 import { Post } from "./models";
 import { connectToDb } from "./utils";
+import { signIn,signOut } from "./auth";
 
-export const handleLogin = async () => {};
-export const handleLogout = async () => {};
+export const handleLogin = async () => {
+  await signIn("google");
+  console.log("login successfull");
+};
+export const handleLogout = async () => {
+  await signOut();
+  console.log("logout successfull");
+};
 
 export const addPost = async (formData) => {
   const { title, description, image, role } = Object.fromEntries(formData);

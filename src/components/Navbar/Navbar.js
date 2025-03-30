@@ -1,7 +1,8 @@
 import { handleLogin, handleLogout } from "@/lib/action";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
-const Navbar = () => {
+import { auth } from "@/lib/auth";
+const Navbar = async () => {
   const links = [
     {
       name: "Home",
@@ -12,7 +13,10 @@ const Navbar = () => {
       path: "/dashboard",
     },
   ];
-  let user = "";
+
+  const session = await auth();
+  console.log(session);
+  let user = session?.user;
   return (
     <div className={styles.container}>
       <div>Logo</div>
