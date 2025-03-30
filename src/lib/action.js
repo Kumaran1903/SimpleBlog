@@ -3,6 +3,9 @@ import { revalidatePath } from "next/cache";
 import { Post } from "./models";
 import { connectToDb } from "./utils";
 
+export const handleLogin = async () => {};
+export const handleLogout = async () => {};
+
 export const addPost = async (formData) => {
   const { title, description, image, role } = Object.fromEntries(formData);
   try {

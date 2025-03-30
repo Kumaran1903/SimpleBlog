@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  font-size: 1.5rem;
+}
+.container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.container form button {
+  display: flex;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
